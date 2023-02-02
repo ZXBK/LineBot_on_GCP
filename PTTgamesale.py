@@ -48,12 +48,11 @@ def linebot(request):
                 contents = aa[2:]
                 print(contents)
                 for s in contents: 
-                    if str(s).find(msg) != -1:
+                    if s.find("【物品名稱】") != -1:
                         price_list.append(s)
-                    if s.find("售") != -1:
-                        # price = re.findall(r'\d+',s)
-                        # price_list.append(int(price[0]))
+                    if s.find("【售    價】") != -1:
                         price_list.append(s)
+                price_list.append("https://www.ptt.cc"+i)
 
             reply = msg
         else:
